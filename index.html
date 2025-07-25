@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Code Quest</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <header class="game-header">
+            <h1>Junior Code Quest 🤖</h1>
+            <div id="level-indicator">Level 1</div>
+        </header>
+        
+        <main class="game-main">
+            <div class="game-world">
+                <div id="grid-container"></div>
+            </div>
+
+            <div class="control-panel">
+                <h2>Commander's Code</h2>
+                <div class="code-editor-wrapper">
+                    <textarea id="code-editor" rows="10" placeholder="Type your commands here..."></textarea>
+                    <div id="error-feedback" class="error-feedback"></div>
+                </div>
+                <div class="snippet-buttons">
+                    <button class="btn btn-snippet" data-snippet="moveForward()">moveForward()</button>
+                    <button class="btn btn-snippet" data-snippet="turnLeft()">turnLeft()</button>
+                    <button class="btn btn-snippet" data-snippet="turnRight()">turnRight()</button>
+                    <button class="btn btn-snippet" data-snippet="repeat(3) {\n  \n}">repeat(n)</button>
+                </div>
+                <div class="action-buttons">
+                    <button id="run-btn" class="btn btn-action btn-run">▶ Run</button>
+                    <button id="reset-btn" class="btn btn-action btn-reset">↺ Reset</button>
+                    <button id="hint-btn" class="btn btn-action btn-hint">💡 Hint</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- End-of-Level Modal -->
+    <div id="level-complete-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Level Complete!</h2>
+            <div id="star-rating" class="star-rating"></div>
+            <p id="modal-message">Great job, Commander!</p>
+            <button id="next-level-btn" class="btn btn-action btn-next">Next Level →</button>
+        </div>
+    </div>
+    
+    <script src="main.js" type="module"></script>
+</body>
+</html>
