@@ -77,6 +77,71 @@
         </div>
     </div>
 
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="modal-overlay">
+        <div class="modal-content welcome-modal">
+            <div class="welcome-header">
+                <button id="close-welcome-btn" class="close-btn">&times;</button>
+                <div class="game-logo">🤖</div>
+                <h1>Junior Code Quest</h1>
+                <p class="welcome-subtitle">Learn Programming Through Play!</p>
+            </div>
+            
+            <div class="welcome-content">
+                <div class="game-description">
+                    <p>Guide your robot to the goal by writing simple code commands. Perfect for young coders to learn programming logic!</p>
+                </div>
+
+                <div class="quick-commands">
+                    <h3>🎮 Quick Commands:</h3>
+                    <div class="command-grid">
+                        <div class="cmd-item">
+                            <code>moveForward()</code>
+                            <span>Move ahead</span>
+                        </div>
+                        <div class="cmd-item">
+                            <code>turnLeft()</code>
+                            <span>Turn left</span>
+                        </div>
+                        <div class="cmd-item">
+                            <code>turnRight()</code>
+                            <span>Turn right</span>
+                        </div>
+                        <div class="cmd-item">
+                            <code>repeat(n) { }</code>
+                            <span>Loop commands</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">⭐</span>
+                        <span>Earn stars for efficient code</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💡</span>
+                        <span>Get hints when stuck</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🏆</span>
+                        <span>Complete levels to master coding</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="welcome-actions">
+                <button id="start-game-btn" class="btn btn-action btn-start">
+                    <span>🚀</span>
+                    Start Your Adventure
+                </button>
+                <button id="skip-welcome-btn" class="btn btn-secondary">
+                    Skip Intro
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Hint Modal -->
     <div id="hint-modal" class="modal-overlay hidden">
         <div class="modal-content hint-modal">
@@ -103,3 +168,4 @@
     <script src="main.js" type="module"></script>
 </body>
 </html>
+``` 

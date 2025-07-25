@@ -10,14 +10,19 @@ export default class UIManager {
             starRating: document.getElementById('star-rating'),
             errorFeedback: document.getElementById('error-feedback'),
             snippetButtons: document.querySelectorAll('.btn-snippet'),
-            // New hint modal elements
+            // Hint modal elements
             hintModal: document.getElementById('hint-modal'),
             hintText: document.getElementById('hint-text'),
             hintVisual: document.getElementById('hint-visual'),
             hintTipsList: document.getElementById('hint-tips-list'),
             closeHintBtn: document.getElementById('close-hint-btn'),
             showSolutionBtn: document.getElementById('show-solution-btn'),
-            tryAgainBtn: document.getElementById('try-again-btn')
+            tryAgainBtn: document.getElementById('try-again-btn'),
+            // Welcome modal elements
+            welcomeModal: document.getElementById('welcome-modal'),
+            startGameBtn: document.getElementById('start-game-btn'),
+            closeWelcomeBtn: document.getElementById('close-welcome-btn'),
+            skipWelcomeBtn: document.getElementById('skip-welcome-btn')
         };
     }
 
@@ -30,10 +35,29 @@ export default class UIManager {
             btn.addEventListener('click', () => callbacks.onSnippetClick(btn.dataset.snippet));
         });
 
-        // New hint modal listeners
+        // Hint modal listeners
         this.elements.closeHintBtn.addEventListener('click', () => this.hideHintModal());
         this.elements.tryAgainBtn.addEventListener('click', () => this.hideHintModal());
         this.elements.showSolutionBtn.addEventListener('click', callbacks.onShowSolution);
+
+        // Welcome modal listeners
+        this.elements.startGameBtn.addEventListener('click', callbacks.onStartGame);
+        this.elements.closeWelcomeBtn.addEventListener('click', callbacks.onCloseWelcome);
+        this.elements.skipWelcomeBtn.addEventListener('click', callbacks.onCloseWelcome);
+        
+        // Allow clicking outside modal to close
+        this.elements.welcomeModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.welcomeModal) {
+                callbacks.onCloseWelcome();
+            }
+        });
+        
+        // Allow ESC key to close welcome modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.elements.welcomeModal.classList.contains('hidden')) {
+                callbacks.onCloseWelcome();
+            }
+        });
     }
 
     updateLevelIndicator(level) {
@@ -76,7 +100,7 @@ export default class UIManager {
         this.elements.modal.classList.add('hidden');
     }
 
-    // New hint modal methods
+    // Hint modal methods
     showHintModal(hintData) {
         this.elements.hintText.textContent = hintData.text;
         
@@ -100,5 +124,27 @@ export default class UIManager {
 
     hideHintModal() {
         this.elements.hintModal.classList.add('hidden');
+    }
+
+    // Welcome modal methods
+    showWelcomeModal() {
+        this.elements.welcomeModal.classList.remove('hidden');
+    }
+
+    hideWelcomeModal() {
+        this.elements.welcomeModal.classList.add('hidden');
+    }
+
+    checkWelcomeStatus() {
+        const hasSeenWelcome = localStorage.getItem('cqj_hasSeenWelcome');
+        if (!hasSeenWelcome) {
+            this.showWelcomeModal();
+            return false;
+        }
+        return true;
+    }
+
+    markWelcomeSeen() {
+        localStorage.setItem('cqj_hasSeenWelcome', 'true');
     }
 }

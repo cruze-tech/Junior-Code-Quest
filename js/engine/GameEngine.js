@@ -13,6 +13,19 @@ export default class GameEngine {
     async start() {
         await this.loadLevels();
         this.loadPlayerProgress();
+        
+        // Check if user has seen welcome screen
+        if (!this.uiManager.checkWelcomeStatus()) {
+            // Welcome modal is shown, wait for user to start
+            return;
+        }
+        
+        this.loadCurrentLevel();
+    }
+
+    startGame() {
+        this.uiManager.markWelcomeSeen();
+        this.uiManager.hideWelcomeModal();
         this.loadCurrentLevel();
     }
 
@@ -225,5 +238,10 @@ export default class GameEngine {
             codeEditor.value = solution;
             this.uiManager.hideHintModal();
         }
+    }
+
+    closeWelcome() {
+        this.uiManager.hideWelcomeModal();
+        this.loadCurrentLevel();
     }
 }

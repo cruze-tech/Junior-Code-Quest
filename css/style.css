@@ -368,6 +368,287 @@ body {
     }
 }
 
+/* Welcome Modal Styles - Updated with 25% font size increase */
+.welcome-modal {
+    max-width: 400px;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #fff 0%, #f8faff 100%);
+    border: 3px solid var(--primary-blue);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-success), var(--primary-blue), var(--green-success));
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+@keyframes robotBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(-5deg); }
+    75% { transform: translateY(-5px) rotate(5deg); }
+}
+
+.welcome-header {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.welcome-header .close-btn {
+    position: absolute;
+    top: -0.6rem;
+    right: -0.6rem;
+    background: var(--red-error);
+    color: white;
+    border: none;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.welcome-header .close-btn:hover {
+    background: #d73e63;
+    transform: scale(1.1);
+}
+
+.game-logo {
+    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
+    animation: robotBounce 2s ease-in-out infinite;
+}
+
+.welcome-header h1 {
+    font-family: var(--font-primary);
+    color: var(--primary-blue);
+    font-size: 1.65rem; /* Increased by 25% from 1.32rem */
+    margin: 0 0 0.3rem 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-subtitle {
+    color: var(--hover-blue);
+    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.welcome-content {
+    margin: 0.9rem 0;
+    text-align: left;
+}
+
+.game-description {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e8f4ff 100%);
+    padding: 0.6rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--green-success);
+    margin-bottom: 0.9rem;
+    text-align: center;
+}
+
+.game-description p {
+    margin: 0;
+    color: #333;
+    font-size: 0.75rem; /* Increased by 25% from 0.6rem */
+    line-height: 1.25; /* Increased by 25% from 1.0 */
+}
+
+.quick-commands h3 {
+    color: var(--primary-blue);
+    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    margin: 0 0 0.6rem 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.command-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+    margin-bottom: 0.9rem;
+}
+
+.cmd-item {
+    background: white;
+    padding: 0.48rem 0.3rem;
+    border-radius: 8px;
+    border: 2px solid var(--grid-line);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.cmd-item:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+.cmd-item code {
+    display: block;
+    font-family: 'Courier New', monospace;
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.18rem 0.3rem;
+    border-radius: 4px;
+    font-size: 0.6rem; /* Increased by 25% from 0.48rem */
+    font-weight: bold;
+    margin-bottom: 0.18rem;
+}
+
+.cmd-item span {
+    color: #666;
+    font-size: 0.6375rem; /* Increased by 25% from 0.51rem */
+}
+
+.game-features {
+    background: #fffbf0;
+    padding: 0.6rem;
+    border-radius: 12px;
+    border-left: 4px solid #f5a623;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.7125rem; /* Increased by 25% from 0.57rem */
+    color: #333;
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+}
+
+.feature-icon {
+    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+    width: 14px;
+    text-align: center;
+}
+
+.welcome-actions {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--grid-line);
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, var(--green-success) 0%, var(--hover-green) 100%);
+    color: white;
+    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(80, 227, 194, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    flex: 1;
+    max-width: 120px;
+    animation: pulse 2s infinite;
+}
+
+.btn-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(80, 227, 194, 0.4);
+    animation: none;
+}
+
+.btn-secondary {
+    background: var(--grid-line);
+    color: #666;
+    font-size: 0.75rem; /* Increased by 25% from 0.6rem */
+    padding: 0.6rem 0.9rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    flex: 0;
+    min-width: 72px;
+}
+
+.btn-secondary:hover {
+    background: #b0bcc9;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+.btn-start span:first-child {
+    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+}
+
+/* Mobile responsive adjustments - 25% font increase */
+@media (max-width: 600px) {
+    .welcome-modal {
+        margin: 0.6rem;
+        max-width: calc(100% - 1.2rem);
+        padding: 0.9rem;
+    }
+    
+    .game-logo {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-header h1 {
+        font-size: 1.35rem; /* Increased by 25% from 1.08rem */
+    }
+    
+    .command-grid {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+    
+    .cmd-item {
+        padding: 0.36rem;
+    }
+    
+    .welcome-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-start, .btn-secondary {
+        max-width: 120px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-modal {
+        padding: 0.6rem;
+    }
+    
+    .welcome-header h1 {
+        font-size: 1.125rem; /* Increased by 25% from 0.9rem */
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.75rem; /* Increased by 25% from 0.6rem */
+    }
+}
+
 /* Bottom Advertisement Styles */
 .ad-container-bottom {
     width: 100%;
