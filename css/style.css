@@ -368,7 +368,7 @@ body {
     }
 }
 
-/* Welcome Modal Styles - Updated with 25% font size increase */
+/* Welcome Modal Styles - Updated with better mobile responsiveness */
 .welcome-modal {
     max-width: 400px;
     padding: 1.2rem;
@@ -377,6 +377,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .welcome-modal::before {
@@ -416,7 +417,7 @@ body {
     width: 21px;
     height: 21px;
     border-radius: 50%;
-    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+    font-size: 0.9rem;
     cursor: pointer;
     z-index: 10;
     transition: all 0.2s ease;
@@ -436,14 +437,15 @@ body {
 .welcome-header h1 {
     font-family: var(--font-primary);
     color: var(--primary-blue);
-    font-size: 1.65rem; /* Increased by 25% from 1.32rem */
+    font-size: 1.65rem;
     margin: 0 0 0.3rem 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    word-wrap: break-word;
 }
 
 .welcome-subtitle {
     color: var(--hover-blue);
-    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    font-size: 0.825rem;
     font-weight: 600;
     margin: 0;
     opacity: 0.9;
@@ -466,19 +468,21 @@ body {
 .game-description p {
     margin: 0;
     color: #333;
-    font-size: 0.75rem; /* Increased by 25% from 0.6rem */
-    line-height: 1.25; /* Increased by 25% from 1.0 */
+    font-size: 0.75rem;
+    line-height: 1.25;
+    word-wrap: break-word;
 }
 
 .quick-commands h3 {
     color: var(--primary-blue);
-    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    font-size: 0.825rem;
     margin: 0 0 0.6rem 0;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
+    flex-wrap: wrap;
 }
 
 .command-grid {
@@ -495,6 +499,11 @@ body {
     border: 2px solid var(--grid-line);
     text-align: center;
     transition: all 0.2s ease;
+    box-sizing: border-box;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cmd-item:hover {
@@ -510,14 +519,17 @@ body {
     color: white;
     padding: 0.18rem 0.3rem;
     border-radius: 4px;
-    font-size: 0.6rem; /* Increased by 25% from 0.48rem */
+    font-size: 0.6rem;
     font-weight: bold;
     margin-bottom: 0.18rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .cmd-item span {
     color: #666;
-    font-size: 0.6375rem; /* Increased by 25% from 0.51rem */
+    font-size: 0.6375rem;
+    word-wrap: break-word;
 }
 
 .game-features {
@@ -532,8 +544,9 @@ body {
     align-items: center;
     gap: 0.48rem;
     margin-bottom: 0.3rem;
-    font-size: 0.7125rem; /* Increased by 25% from 0.57rem */
+    font-size: 0.7125rem;
     color: #333;
+    flex-wrap: wrap;
 }
 
 .feature-item:last-child {
@@ -541,9 +554,10 @@ body {
 }
 
 .feature-icon {
-    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+    font-size: 0.9rem;
     width: 14px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .welcome-actions {
@@ -553,23 +567,32 @@ body {
     display: flex;
     gap: 0.6rem;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .btn-start {
     background: linear-gradient(135deg, var(--green-success) 0%, var(--hover-green) 100%);
     color: white;
-    font-size: 0.825rem; /* Increased by 25% from 0.66rem */
+    font-size: 0.825rem;
     padding: 0.6rem 1.2rem;
     border-radius: 25px;
     box-shadow: 0 4px 15px rgba(80, 227, 194, 0.3);
     transition: all 0.3s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.3rem;
-    flex: 1;
-    max-width: 120px;
+    gap: 0.4rem;
+    min-width: 140px;
+    max-width: 180px;
     animation: pulse 2s infinite;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
 }
 
 .btn-start:hover {
@@ -578,15 +601,27 @@ body {
     animation: none;
 }
 
+.btn-start span:first-child {
+    font-size: 1rem;
+    line-height: 1;
+}
+
 .btn-secondary {
     background: var(--grid-line);
     color: #666;
-    font-size: 0.75rem; /* Increased by 25% from 0.6rem */
+    font-size: 0.75rem;
     padding: 0.6rem 0.9rem;
     border-radius: 25px;
     transition: all 0.3s ease;
-    flex: 0;
-    min-width: 72px;
+    min-width: 80px;
+    max-width: 120px;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
 }
 
 .btn-secondary:hover {
@@ -595,57 +630,290 @@ body {
     transform: translateY(-2px);
 }
 
-.btn-start span:first-child {
-    font-size: 0.9rem; /* Increased by 25% from 0.72rem */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
-/* Mobile responsive adjustments - 25% font increase */
+/* Enhanced Mobile responsive adjustments for buttons */
+@media (max-width: 600px) {
+    .welcome-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .btn-start {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        justify-content: center;
+    }
+    
+    .btn-start span:first-child {
+        font-size: 1.1rem;
+    }
+    
+    .btn-secondary {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-actions {
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        gap: 0.6rem;
+    }
+    
+    .btn-start {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .btn-start span:first-child {
+        font-size: 1rem;
+    }
+    
+    .btn-secondary {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .btn-start {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.7rem;
+    }
+    
+    .btn-start span:first-child {
+        font-size: 0.9rem;
+    }
+    
+    .btn-secondary {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.6rem;
+    }
+}
+
+/* Fix any conflicting button styles */
+.welcome-modal .btn {
+    box-sizing: border-box;
+}
+
+.welcome-modal .btn:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.welcome-modal .btn:active {
+    transform: translateY(0);
+}
+
+.welcome-actions {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--grid-line);
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-actions .btn {
+    flex: 1;
+    max-width: 200px;
+}
+
+.welcome-actions {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--grid-line);
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-actions .btn {
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Enhanced Mobile responsive adjustments */
 @media (max-width: 600px) {
     .welcome-modal {
-        margin: 0.6rem;
-        max-width: calc(100% - 1.2rem);
-        padding: 0.9rem;
+        margin: 0.5rem;
+        max-width: calc(100vw - 1rem);
+        max-height: calc(100vh - 1rem);
+        padding: 0.8rem;
+        overflow-y: auto;
     }
     
     .game-logo {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .welcome-header h1 {
-        font-size: 1.35rem; /* Increased by 25% from 1.08rem */
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.7rem;
     }
     
     .command-grid {
         grid-template-columns: 1fr;
-        gap: 0.3rem;
+        gap: 0.4rem;
     }
     
     .cmd-item {
-        padding: 0.36rem;
+        padding: 0.5rem;
+        min-height: 50px;
+    }
+    
+    .cmd-item code {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .cmd-item span {
+        font-size: 0.65rem;
+    }
+    
+    .game-description p {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+    
+    .feature-item {
+        font-size: 0.65rem;
+        gap: 0.4rem;
+    }
+    
+    .feature-icon {
+        font-size: 0.8rem;
+        width: 16px;
     }
     
     .welcome-actions {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 0.5rem;
     }
     
     .btn-start, .btn-secondary {
-        max-width: 120px;
+        max-width: 100%;
         width: 100%;
+        flex: none;
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .welcome-modal {
+        margin: 0.3rem;
+        max-width: calc(100vw - 0.6rem);
         padding: 0.6rem;
     }
     
+    .welcome-header {
+        margin-bottom: 0.8rem;
+    }
+    
     .welcome-header h1 {
-        font-size: 1.125rem; /* Increased by 25% from 0.9rem */
+        font-size: 1rem;
+        margin: 0 0 0.2rem 0;
     }
     
     .welcome-subtitle {
-        font-size: 0.75rem; /* Increased by 25% from 0.6rem */
+        font-size: 0.65rem;
+    }
+    
+    .game-logo {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .welcome-content {
+        margin: 0.6rem 0;
+    }
+    
+    .game-description {
+        padding: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .game-description p {
+        font-size: 0.65rem;
+    }
+    
+    .quick-commands h3 {
+        font-size: 0.7rem;
+        margin: 0 0 0.4rem 0;
+    }
+    
+    .command-grid {
+        margin-bottom: 0.6rem;
+    }
+    
+    .game-features {
+        padding: 0.5rem;
+    }
+    
+    .feature-item {
+        font-size: 0.6rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .welcome-actions {
+        margin-top: 0.8rem;
+        padding-top: 0.6rem;
+    }
+    
+    .btn-start, .btn-secondary {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .welcome-header .close-btn {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        top: -0.4rem;
+        right: -0.4rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .welcome-modal {
+        margin: 0.2rem;
+        max-width: calc(100vw - 0.4rem);
+        padding: 0.5rem;
+    }
+    
+    .welcome-header h1 {
+        font-size: 0.9rem;
+    }
+    
+    .game-logo {
+        font-size: 1.5rem;
+    }
+    
+    .btn-start, .btn-secondary {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.6rem;
     }
 }
 
