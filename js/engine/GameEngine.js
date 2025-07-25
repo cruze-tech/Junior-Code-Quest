@@ -164,8 +164,66 @@ export default class GameEngine {
     }
     
     showHint() {
-        // Mock Gemini Hint
-        const hint = this.levels[this.currentLevelIndex].hint || "Try your best!";
-        alert(`💡 Hint: ${hint}`);
+        const level = this.levels[this.currentLevelIndex];
+        const hintData = this.getEnhancedHintData(level);
+        this.uiManager.showHintModal(hintData);
+    }
+
+    getEnhancedHintData(level) {
+        const baseHints = {
+            1: {
+                text: "Hi there, Commander! 👋 Your robot just needs to walk forward to reach the goal. Think of it like taking steps!",
+                tips: [
+                    "Use the moveForward() command",
+                    "Count how many steps you need",
+                    "Click the 'moveForward()' button to add it to your code"
+                ],
+                visual: "🤖 ➡️ ➡️ ➡️ ➡️ 🎯"
+            },
+            2: {
+                text: "Uh oh! There's a wall in your way! 🧱 You'll need to go around it. Think about which direction to turn!",
+                tips: [
+                    "Go up first, then turn right",
+                    "Use turnRight() to change direction",
+                    "Remember: up, right, right, right, down!"
+                ],
+                visual: "🤖⬆️➡️🧱<br/>⬆️⬆️⬆️➡️🎯"
+            },
+            3: {
+                text: "Wow, you need to move forward many times! 😅 That's a lot of typing. Is there a smarter way?",
+                tips: [
+                    "Use repeat() to do the same thing multiple times",
+                    "Put moveForward() inside repeat(4) { }",
+                    "Count the goals - that's how many times to repeat!"
+                ],
+                visual: "🤖 🔄×4 🎯🎯🎯🎯"
+            }
+        };
+
+        return baseHints[level.id] || {
+            text: level.hint || "You've got this! Think step by step! 🧠✨",
+            tips: [
+                "Look at where your robot needs to go",
+                "Break the problem into small steps",
+                "Use the command buttons to help you"
+            ],
+            visual: "🤖💭🎯"
+        };
+    }
+
+    showSolution() {
+        const level = this.levels[this.currentLevelIndex];
+        const solutions = {
+            1: "moveForward()\nmoveForward()\nmoveForward()\nmoveForward()",
+            2: "moveForward()\nmoveForward()\nmoveForward()\nmoveForward()\nturnRight()\nmoveForward()\nmoveForward()\nmoveForward()\nmoveForward()",
+            3: "repeat(4) {\n  moveForward()\n}"
+        };
+
+        const solution = solutions[level.id];
+        if (solution) {
+            const codeEditor = document.getElementById('code-editor');
+            codeEditor.value = solution;
+            this.uiManager.hideHintModal();
+        }
     }
 }

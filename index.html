@@ -76,6 +76,29 @@
             <button id="next-level-btn" class="btn btn-action btn-next">Next Level →</button>
         </div>
     </div>
+
+    <!-- Hint Modal -->
+    <div id="hint-modal" class="modal-overlay hidden">
+        <div class="modal-content hint-modal">
+            <div class="hint-header">
+                <span class="hint-icon">💡</span>
+                <h2>Robot Helper Says...</h2>
+                <button id="close-hint-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="hint-content">
+                <p id="hint-text"></p>
+                <div id="hint-visual" class="hint-visual"></div>
+                <div class="hint-tips">
+                    <h3>🎯 Quick Tips:</h3>
+                    <ul id="hint-tips-list"></ul>
+                </div>
+            </div>
+            <div class="hint-actions">
+                <button id="show-solution-btn" class="btn btn-hint">Show me the code! 📝</button>
+                <button id="try-again-btn" class="btn btn-action">I'll try again! 💪</button>
+            </div>
+        </div>
+    </div>
     
     <script src="main.js" type="module"></script>
 </body>

@@ -9,7 +9,15 @@ export default class UIManager {
             modal: document.getElementById('level-complete-modal'),
             starRating: document.getElementById('star-rating'),
             errorFeedback: document.getElementById('error-feedback'),
-            snippetButtons: document.querySelectorAll('.btn-snippet')
+            snippetButtons: document.querySelectorAll('.btn-snippet'),
+            // New hint modal elements
+            hintModal: document.getElementById('hint-modal'),
+            hintText: document.getElementById('hint-text'),
+            hintVisual: document.getElementById('hint-visual'),
+            hintTipsList: document.getElementById('hint-tips-list'),
+            closeHintBtn: document.getElementById('close-hint-btn'),
+            showSolutionBtn: document.getElementById('show-solution-btn'),
+            tryAgainBtn: document.getElementById('try-again-btn')
         };
     }
 
@@ -21,6 +29,11 @@ export default class UIManager {
         this.elements.snippetButtons.forEach(btn => {
             btn.addEventListener('click', () => callbacks.onSnippetClick(btn.dataset.snippet));
         });
+
+        // New hint modal listeners
+        this.elements.closeHintBtn.addEventListener('click', () => this.hideHintModal());
+        this.elements.tryAgainBtn.addEventListener('click', () => this.hideHintModal());
+        this.elements.showSolutionBtn.addEventListener('click', callbacks.onShowSolution);
     }
 
     updateLevelIndicator(level) {
@@ -61,5 +74,31 @@ export default class UIManager {
 
     hideLevelCompleteModal() {
         this.elements.modal.classList.add('hidden');
+    }
+
+    // New hint modal methods
+    showHintModal(hintData) {
+        this.elements.hintText.textContent = hintData.text;
+        
+        // Add visual representation if provided
+        if (hintData.visual) {
+            this.elements.hintVisual.innerHTML = hintData.visual;
+        } else {
+            this.elements.hintVisual.innerHTML = '<span style="font-size: 2rem;">🤖➡️🎯</span>';
+        }
+
+        // Add tips
+        this.elements.hintTipsList.innerHTML = '';
+        hintData.tips.forEach(tip => {
+            const li = document.createElement('li');
+            li.textContent = tip;
+            this.elements.hintTipsList.appendChild(li);
+        });
+
+        this.elements.hintModal.classList.remove('hidden');
+    }
+
+    hideHintModal() {
+        this.elements.hintModal.classList.add('hidden');
     }
 }

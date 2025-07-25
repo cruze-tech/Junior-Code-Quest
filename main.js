@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         onReset: () => game.loadCurrentLevel(),
         onNextLevel: () => game.loadNextLevel(),
         onHint: () => game.showHint(),
+        onShowSolution: () => game.showSolution(),
         onSnippetClick: (snippet) => {
             const pos = codeEditor.selectionStart;
             const text = codeEditor.value;

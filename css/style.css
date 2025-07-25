@@ -233,6 +233,141 @@ body {
 .star-rating { font-size: 2.5rem; margin: 1rem 0; }
 .star-rating .star.filled { color: #f5a623; }
 
+/* Hint Modal Styles */
+.hint-modal {
+    max-width: 500px;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+    border: 3px solid var(--primary-blue);
+}
+
+.hint-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px dashed var(--primary-blue);
+}
+
+.hint-icon {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.hint-header h2 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: #f0f0f0;
+    color: var(--red-error);
+}
+
+.hint-content {
+    margin: 1rem 0;
+}
+
+#hint-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--green-success);
+}
+
+.hint-visual {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px dashed var(--grid-line);
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hint-tips {
+    background: #fffbf0;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #f5a623;
+}
+
+.hint-tips h3 {
+    margin: 0 0 0.5rem 0;
+    color: #d88f17;
+    font-size: 1rem;
+}
+
+.hint-tips ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.hint-tips li {
+    margin-bottom: 0.3rem;
+    color: #666;
+}
+
+.hint-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.hint-actions .btn {
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Mobile responsive for hint modal */
+@media (max-width: 480px) {
+    .hint-modal {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+        padding: 1rem;
+    }
+    
+    .hint-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hint-actions {
+        flex-direction: column;
+    }
+}
+
 /* Bottom Advertisement Styles */
 .ad-container-bottom {
     width: 100%;
