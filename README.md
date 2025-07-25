@@ -9,7 +9,7 @@ Welcome to **Code Quest Junior**! This edutainment game is designed for children
 
 The goal is to make learning to code an act of play and discovery, removing intimidation and fostering a love for logical thinking.
 
-### 🎮 [Live](https://cruze-tech.github.io/code-quest-junior/)
+### 🎮 [Live](https://cruze-tech.github.io/Junior-Code-Quest/)
 
 
 ## ✨ Core Features
