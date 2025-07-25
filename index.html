@@ -32,7 +32,10 @@
         <div id="game-container">
             <header class="game-header">
                 <h1>Junior Code Quest 🤖</h1>
-                <div id="level-indicator">Level 1</div>
+                <div class="header-controls">
+                    <button id="level-select-btn" class="btn btn-header">📋 Levels</button>
+                    <div id="level-indicator" class="level-indicator-clickable" title="Click to select level">Level 1</div>
+                </div>
             </header>
             
             <main class="game-main">
@@ -73,7 +76,81 @@
             <h2 id="modal-title">Level Complete!</h2>
             <div id="star-rating" class="star-rating"></div>
             <p id="modal-message">Great job, Commander!</p>
-            <button id="next-level-btn" class="btn btn-action btn-next">Next Level →</button>
+            <div class="level-complete-actions">
+                <button id="next-level-btn" class="btn btn-action btn-next">Next Level →</button>
+                <button id="replay-level-btn" class="btn btn-secondary">🔄 Replay</button>
+                <button id="select-level-btn" class="btn btn-secondary">📋 Select Level</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Complete Modal -->
+    <div id="game-complete-modal" class="modal-overlay hidden">
+        <div class="modal-content game-complete-modal">
+            <div class="game-complete-header">
+                <h2>🎉 Congratulations! 🎉</h2>
+                <div class="trophy-animation">🏆</div>
+                <p class="completion-message">You've mastered all 18 levels of Junior Code Quest!</p>
+            </div>
+            
+            <div class="game-complete-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-stars">0</span>
+                    <span class="stat-label">⭐ Total Stars</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">18</span>
+                    <span class="stat-label">🎯 Levels Completed</span>
+                </div>
+            </div>
+
+            <div class="game-complete-actions">
+                <button id="restart-game-btn" class="btn btn-action btn-restart">🔄 Start Over</button>
+                <button id="browse-levels-btn" class="btn btn-action btn-browse">📋 Browse Levels</button>
+                <button id="share-achievement-btn" class="btn btn-secondary">📤 Share Achievement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level Selection Modal -->
+    <div id="level-select-modal" class="modal-overlay hidden">
+        <div class="modal-content level-select-modal">
+            <div class="level-select-header">
+                <h2>🎮 Level Selection</h2>
+                <button id="close-level-select-btn" class="close-btn">&times;</button>
+            </div>
+            
+            <div class="level-select-content">
+                <p class="level-select-description">Choose any level you've unlocked to play!</p>
+                
+                <div class="level-progress-summary">
+                    <div class="progress-item">
+                        <span id="completed-levels-count">0</span>
+                        <span>Levels Completed</span>
+                    </div>
+                    <div class="progress-item">
+                        <span id="total-stars-earned">0</span>
+                        <span>⭐ Stars Earned</span>
+                    </div>
+                    <div class="progress-item">
+                        <span id="completion-percentage">0%</span>
+                        <span>Progress</span>
+                    </div>
+                </div>
+
+                <div id="level-grid" class="level-grid">
+                    <!-- Levels will be dynamically generated here -->
+                </div>
+                
+                <div class="level-select-actions">
+                    <button id="continue-current-btn" class="btn btn-action btn-continue">
+                        ▶️ Continue Current Level
+                    </button>
+                    <button id="reset-progress-btn" class="btn btn-secondary btn-danger">
+                        🔄 Reset All Progress
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -168,4 +245,3 @@
     <script src="main.js" type="module"></script>
 </body>
 </html>
-``` 

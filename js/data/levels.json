@@ -39,12 +39,193 @@
     },
     {
         "id": 4,
-        "name": "Final Challenge",
-        "gridSize": { "width": 1, "height": 1 },
-        "start": { "x": 0, "y": 0, "direction": "east"},
-        "goals": [],
+        "name": "Long Walk",
+        "gridSize": { "width": 10, "height": 1 },
+        "start": { "x": 0, "y": 0, "direction": "east" },
+        "goals": [{ "x": 9, "y": 0 }],
         "obstacles": [],
-        "optimalMoves": 0,
-        "hint": ""
+        "optimalMoves": 9,
+        "hint": "That's a lot of moveForward() commands! Can you use repeat() to make it shorter?"
+    },
+    {
+        "id": 5,
+        "name": "Simple Turn",
+        "gridSize": { "width": 4, "height": 4 },
+        "start": { "x": 0, "y": 3, "direction": "east" },
+        "goals": [{ "x": 3, "y": 0 }],
+        "obstacles": [],
+        "optimalMoves": 7,
+        "hint": "Try moving forward, then turning up, then moving forward again. That's an L-shaped path!"
+    },
+    {
+        "id": 6,
+        "name": "Double Turn",
+        "gridSize": { "width": 5, "height": 4 },
+        "start": { "x": 0, "y": 3, "direction": "east" },
+        "goals": [{ "x": 0, "y": 0 }],
+        "obstacles": [],
+        "optimalMoves": 8,
+        "hint": "Make a U-shape! Go right, turn up, go up, turn left, then go left. Two turns needed!"
+    },
+    {
+        "id": 7,
+        "name": "Straight Loop",
+        "gridSize": { "width": 12, "height": 1 },
+        "start": { "x": 0, "y": 0, "direction": "east" },
+        "goals": [{ "x": 11, "y": 0 }],
+        "obstacles": [],
+        "optimalMoves": 11,
+        "hint": "Typing moveForward() 11 times is tedious! Use repeat(11) { moveForward() } instead."
+    },
+    {
+        "id": 8,
+        "name": "Box Walk",
+        "gridSize": { "width": 4, "height": 4 },
+        "start": { "x": 0, "y": 3, "direction": "east" },
+        "goals": [
+            { "x": 1, "y": 3 }, { "x": 2, "y": 3 }, { "x": 3, "y": 3 },
+            { "x": 3, "y": 2 }, { "x": 3, "y": 1 }, { "x": 3, "y": 0 },
+            { "x": 2, "y": 0 }, { "x": 1, "y": 0 }, { "x": 0, "y": 0 },
+            { "x": 0, "y": 1 }, { "x": 0, "y": 2 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 8,
+        "hint": "Walk around the outside edge! Try repeat(4) with moveForward() three times and turnRight() once."
+    },
+    {
+        "id": 9,
+        "name": "Wall Maze",
+        "gridSize": { "width": 6, "height": 5 },
+        "start": { "x": 0, "y": 4, "direction": "east" },
+        "goals": [{ "x": 5, "y": 0 }],
+        "obstacles": [
+            { "x": 2, "y": 4 }, { "x": 2, "y": 3 }, { "x": 2, "y": 2 },
+            { "x": 3, "y": 2 }, { "x": 4, "y": 2 }
+        ],
+        "optimalMoves": 11,
+        "hint": "The wall blocks your path! Go around it by turning north early, then east when you can."
+    },
+    {
+        "id": 10,
+        "name": "Obstacle Course",
+        "gridSize": { "width": 7, "height": 5 },
+        "start": { "x": 0, "y": 4, "direction": "east" },
+        "goals": [{ "x": 6, "y": 0 }],
+        "obstacles": [
+            { "x": 2, "y": 4 }, { "x": 2, "y": 3 },
+            { "x": 4, "y": 2 }, { "x": 4, "y": 1 },
+            { "x": 1, "y": 1 }, { "x": 2, "y": 1 }
+        ],
+        "optimalMoves": 13,
+        "hint": "Multiple obstacles mean multiple detours! Plan your path carefully around each wall."
+    },
+    {
+        "id": 11,
+        "name": "Narrow Pass",
+        "gridSize": { "width": 8, "height": 3 },
+        "start": { "x": 0, "y": 1, "direction": "east" },
+        "goals": [{ "x": 7, "y": 1 }],
+        "obstacles": [
+            { "x": 2, "y": 0 }, { "x": 3, "y": 0 }, { "x": 4, "y": 0 }, { "x": 5, "y": 0 },
+            { "x": 2, "y": 2 }, { "x": 3, "y": 2 }, { "x": 4, "y": 2 }, { "x": 5, "y": 2 }
+        ],
+        "optimalMoves": 7,
+        "hint": "Stay in the middle row! The narrow corridor is the only safe path through."
+    },
+    {
+        "id": 12,
+        "name": "Collect All",
+        "gridSize": { "width": 5, "height": 5 },
+        "start": { "x": 2, "y": 2, "direction": "north" },
+        "goals": [
+            { "x": 0, "y": 0 }, { "x": 4, "y": 0 }, { "x": 4, "y": 4 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 16,
+        "hint": "Start from the center and visit all three corners! Plan the shortest route to collect them all."
+    },
+    {
+        "id": 13,
+        "name": "Sequential Collection",
+        "gridSize": { "width": 6, "height": 3 },
+        "start": { "x": 0, "y": 1, "direction": "east" },
+        "goals": [
+            { "x": 1, "y": 1 }, { "x": 2, "y": 0 }, { "x": 3, "y": 1 }, 
+            { "x": 4, "y": 2 }, { "x": 5, "y": 1 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 10,
+        "hint": "Follow the winding path! Each goal leads to the next in a specific sequence."
+    },
+    {
+        "id": 14,
+        "name": "Big Grid Sweep",
+        "gridSize": { "width": 4, "height": 3 },
+        "start": { "x": 0, "y": 0, "direction": "east" },
+        "goals": [
+            { "x": 1, "y": 0 }, { "x": 2, "y": 0 }, { "x": 3, "y": 0 },
+            { "x": 3, "y": 1 }, { "x": 2, "y": 1 }, { "x": 1, "y": 1 },
+            { "x": 1, "y": 2 }, { "x": 2, "y": 2 }, { "x": 3, "y": 2 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 12,
+        "hint": "Sweep each row! Go right across, down one, left across, down one, then right again."
+    },
+    {
+        "id": 15,
+        "name": "Zigzag Path",
+        "gridSize": { "width": 5, "height": 5 },
+        "start": { "x": 0, "y": 4, "direction": "east" },
+        "goals": [
+            { "x": 1, "y": 4 }, { "x": 1, "y": 3 }, { "x": 2, "y": 3 }, 
+            { "x": 2, "y": 2 }, { "x": 3, "y": 2 }, { "x": 3, "y": 1 }, 
+            { "x": 4, "y": 1 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 14,
+        "hint": "Make a zigzag pattern! Forward, turn, forward, turn - but watch the direction!"
+    },
+    {
+        "id": 16,
+        "name": "Spiral Path",
+        "gridSize": { "width": 5, "height": 5 },
+        "start": { "x": 0, "y": 4, "direction": "east" },
+        "goals": [
+            { "x": 1, "y": 4 }, { "x": 2, "y": 4 }, { "x": 3, "y": 4 }, { "x": 4, "y": 4 },
+            { "x": 4, "y": 3 }, { "x": 4, "y": 2 }, { "x": 4, "y": 1 }, { "x": 4, "y": 0 },
+            { "x": 3, "y": 0 }, { "x": 2, "y": 0 }, { "x": 1, "y": 0 },
+            { "x": 1, "y": 1 }, { "x": 1, "y": 2 }, { "x": 1, "y": 3 },
+            { "x": 2, "y": 3 }, { "x": 3, "y": 3 }, { "x": 3, "y": 2 }, { "x": 2, "y": 2 }
+        ],
+        "obstacles": [],
+        "optimalMoves": 20,
+        "hint": "Move in a spiral! Start with the outer edge, then spiral inward. Think about the pattern!"
+    },
+    {
+        "id": 17,
+        "name": "Multi-Path Choices",
+        "gridSize": { "width": 6, "height": 6 },
+        "start": { "x": 0, "y": 5, "direction": "east" },
+        "goals": [{ "x": 5, "y": 0 }],
+        "obstacles": [
+            { "x": 2, "y": 4 }, { "x": 2, "y": 3 },
+            { "x": 3, "y": 2 }, { "x": 4, "y": 2 }
+        ],
+        "optimalMoves": 12,
+        "hint": "Multiple paths exist! Some are shorter than others. Can you find the most efficient route?"
+    },
+    {
+        "id": 18,
+        "name": "Guarded Goal",
+        "gridSize": { "width": 5, "height": 5 },
+        "start": { "x": 0, "y": 4, "direction": "east" },
+        "goals": [{ "x": 2, "y": 2 }],
+        "obstacles": [
+            { "x": 1, "y": 1 }, { "x": 2, "y": 1 }, { "x": 3, "y": 1 },
+            { "x": 1, "y": 2 }, { "x": 3, "y": 2 },
+            { "x": 1, "y": 3 }, { "x": 3, "y": 3 }
+        ],
+        "optimalMoves": 7,
+        "hint": "The goal is surrounded! Find the one opening to get inside the fortress - look for the gap in the bottom-left."
     }
 ]

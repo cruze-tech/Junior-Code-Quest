@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         onReset: () => game.loadCurrentLevel(),
         onNextLevel: () => game.loadNextLevel(),
+        onReplayLevel: () => game.replayLevel(),
+        onShowLevelSelect: () => game.showLevelSelect(),
+        onRestartGame: () => game.restartGame(),
+        onResetProgress: () => {
+            if (confirm('Are you sure you want to reset ALL progress? This cannot be undone!')) {
+                game.resetAllProgress();
+                location.reload();
+            }
+        },
+        onShareAchievement: () => game.shareAchievement(),
         onHint: () => game.showHint(),
         onShowSolution: () => game.showSolution(),
         onStartGame: () => game.startGame(),

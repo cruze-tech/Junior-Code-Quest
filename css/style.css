@@ -52,6 +52,28 @@ body {
     align-items: center;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-header {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-header:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+
 .game-header h1 {
     font-family: var(--font-primary);
     margin: 0;
@@ -65,6 +87,24 @@ body {
     background: rgba(255,255,255,0.2);
     padding: 0.5rem 1rem;
     border-radius: 20px;
+}
+
+.level-indicator-clickable {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.level-indicator-clickable:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
 }
 
 .game-main {
@@ -351,6 +391,26 @@ body {
     max-width: 200px;
 }
 
+/* Fix hint modal button colors */
+.hint-actions .btn-action {
+    background-color: var(--primary-blue);
+    color: black; /* Changed from white to black */
+}
+
+.hint-actions .btn-action:hover {
+    background-color: var(--hover-blue);
+    color: black; /* Ensure it stays black on hover */
+}
+
+/* Alternative: If you want to specifically target the "try again" button */
+#try-again-btn {
+    color: black !important;
+}
+
+#try-again-btn:hover {
+    color: black !important;
+}
+
 /* Mobile responsive for hint modal */
 @media (max-width: 480px) {
     .hint-modal {
@@ -365,6 +425,124 @@ body {
     
     .hint-actions {
         flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .hint-actions .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Share Modal Styles */
+.share-modal {
+    max-width: 450px;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+    border: 3px solid var(--green-success);
+    text-align: center;
+}
+
+.share-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--green-success);
+}
+
+.share-header h2 {
+    color: var(--green-success);
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.achievement-summary {
+    background: #f0fff4;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--green-success);
+    margin-bottom: 1.5rem;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: trophy-spin 3s ease-in-out infinite;
+}
+
+.achievement-summary h3 {
+    color: var(--primary-blue);
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.achievement-summary p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.share-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.share-btn:hover {
+    background: var(--hover-blue);
+    transform: translateY(-2px);
+}
+
+.share-btn:nth-child(2) {
+    background: #1da1f2;
+}
+
+.share-btn:nth-child(2):hover {
+    background: #1a91da;
+}
+
+.share-btn:nth-child(3) {
+    background: #4267b2;
+}
+
+.share-btn:nth-child(3):hover {
+    background: #365899;
+}
+
+/* Mobile responsive for share modal */
+@media (max-width: 480px) {
+    .share-modal {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+        padding: 1.5rem;
+    }
+    
+    .share-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .achievement-summary {
+        padding: 1rem;
+    }
+    
+    .achievement-icon {
+        font-size: 2.5rem;
     }
 }
 
@@ -965,7 +1143,10 @@ body {
 @media (max-width: 480px) {
     .game-header h1 { font-size: 1.2rem; }
     .game-main { padding: 1rem; gap: 1rem; }
-    .grid-tile, .grid-object { width: 40px; height: 40px; }
+    .grid-tile, .grid-object { 
+        width: 40px; 
+        height: 40px; 
+    }
     .ad-container-bottom {
         padding: 0.5rem;
     }
@@ -977,4 +1158,409 @@ body {
 /* Remove old ad styles */
 .ad-container {
     display: none;
+}
+
+/* Level Complete Modal Updates */
+.level-complete-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.level-complete-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    max-width: 150px;
+}
+
+/* Game Complete Modal Styles */
+.game-complete-modal {
+    max-width: 500px;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+    border: 3px solid var(--green-success);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-complete-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-success), #f5a623, var(--green-success));
+    animation: rainbow 3s linear infinite;
+}
+
+.game-complete-header h2 {
+    color: var(--green-success);
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    animation: bounce 2s infinite;
+}
+
+.trophy-animation {
+    font-size: 4rem;
+    margin: 1rem 0;
+    animation: trophy-spin 3s ease-in-out infinite;
+}
+
+@keyframes trophy-spin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-10deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+}
+
+.completion-message {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 1rem 0 2rem 0;
+    line-height: 1.4;
+}
+
+.game-complete-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--green-success);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.game-complete-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.game-complete-actions .btn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 160px;
+}
+
+.btn-restart {
+    background: var(--red-error);
+    color: white;
+}
+
+.btn-restart:hover {
+    background: #d73e63;
+}
+
+.btn-browse {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.btn-browse:hover {
+    background: var(--hover-blue);
+}
+
+/* Level Selection Modal Styles */
+.level-select-modal {
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+    border: 3px solid var(--primary-blue);
+}
+
+.level-select-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--primary-blue);
+}
+
+.level-select-header h2 {
+    color: var(--primary-blue);
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.level-select-description {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--green-success);
+}
+
+.level-progress-summary {
+    display: flex;
+    justify-content: space-around;
+    margin: 1.5rem 0;
+    background: #fffbf0;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #f5a623;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.progress-item span:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.progress-item span:last-child {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+}
+
+.level-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.level-item {
+    background: white;
+    border: 3px solid var(--grid-line);
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.level-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.level-item.completed {
+    border-color: var(--green-success);
+    background: linear-gradient(135deg, #f0fff4 0%, #e8f5e8 100%);
+}
+
+.level-item.completed:hover {
+    box-shadow: 0 8px 25px rgba(80, 227, 194, 0.4);
+}
+
+.level-item.current {
+    border-color: var(--primary-blue);
+    background: linear-gradient(135deg, #f0f8ff 0%, #e8f4ff 100%);
+    animation: pulse-level 2s infinite;
+}
+
+@keyframes pulse-level {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.level-item.locked {
+    background: #f5f5f5;
+    border-color: #ddd;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.level-item.locked:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.level-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 0.3rem;
+}
+
+.level-item.completed .level-number {
+    color: var(--green-success);
+}
+
+.level-item.locked .level-number {
+    color: #999;
+}
+
+.level-name {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.level-stars {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.level-stars .star {
+    color: #ddd;
+}
+
+.level-stars .star.filled {
+    color: #f5a623;
+}
+
+.level-item.locked .level-stars {
+    display: none;
+}
+
+.level-lock-icon {
+    font-size: 1.5rem;
+    color: #999;
+    margin-bottom: 0.3rem;
+}
+
+.level-select-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--grid-line);
+    flex-wrap: wrap;
+}
+
+.level-select-actions .btn {
+    flex: 1;
+    min-width: 160px;
+    max-width: 200px;
+}
+
+.btn-continue {
+    background: var(--green-success);
+    color: white;
+}
+
+.btn-continue:hover {
+    background: var(--hover-green);
+}
+
+.btn-danger {
+    background: var(--red-error);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d73e63;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .header-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .level-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.8rem;
+    }
+    
+    .level-item {
+        min-height: 90px;
+        padding: 0.8rem 0.3rem;
+    }
+    
+    .level-progress-summary {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .game-complete-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .level-complete-actions,
+    .game-complete-actions,
+    .level-select-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .level-complete-actions .btn,
+    .game-complete-actions .btn,
+    .level-select-actions .btn {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .level-select-modal {
+        margin: 0.5rem;
+        max-width: calc(100vw - 1rem);
+        padding: 1rem;
+    }
+    
+    .game-complete-modal {
+        margin: 0.5rem;
+        max-width: calc(100vw - 1rem);
+        padding: 1.5rem;
+    }
+    
+    .level-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .level-item {
+        min-height: 75px;
+        padding: 0.5rem 0.2rem;
+    }
+    
+    .level-number {
+        font-size: 1.2rem;
+    }
+    
+    .level-name {
+        font-size: 0.7rem;
+    }
 }
